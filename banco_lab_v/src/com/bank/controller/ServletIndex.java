@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.bank.util.RoutesView;
+import com.bank.util.IndexVars;
+import com.bank.handler.AccountHandler;
+import com.bank.model.AccountModel;
 
 /**
  * Servlet implementation class ServletIndex
@@ -38,8 +41,13 @@ public class ServletIndex extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		String username = request.getParameter(IndexVars.USERNAME);
+		String password = request.getParameter(IndexVars.PASSWORD);
+		
+		AccountHandler cuentasExistentes = new AccountHandler();
+		
+		//cuentasExistentes.find(new AccountModel());
+		
 		
 		
 		
