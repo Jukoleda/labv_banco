@@ -1,6 +1,8 @@
 package com.bank.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,7 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.bank.util.RoutesView;
 import com.bank.util.IndexVars;
+import com.bank.model.CustomerModel;
 import com.bank.handler.AccountHandler;
+import com.bank.util.SessionClass;
+import com.bank.handler.CustomerHandler;
 import com.bank.model.AccountModel;
 
 /**
@@ -41,10 +46,18 @@ public class ServletIndex extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
-		String username = request.getParameter(IndexVars.USERNAME);
+		String email = request.getParameter(IndexVars.EMAIL);
 		String password = request.getParameter(IndexVars.PASSWORD);
 		
-		AccountHandler cuentasExistentes = new AccountHandler();
+		try {
+			CustomerModel usuario = CustomerHandler.find(new SessionClass(email, password));
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//cuentasExistentes.find(new AccountModel());
 		

@@ -9,7 +9,7 @@ import com.bank.service.TypesAccountsService;
 
 public class AccountHandler {
 	
-	public ArrayList<AccountModel> findAll() throws ClassNotFoundException, SQLException{
+	public static ArrayList<AccountModel> findAll() throws ClassNotFoundException, SQLException{
 		
 		ArrayList<AccountModel> accounts = new ArrayList<AccountModel>();
 		accounts = AccountsService.getAll();
