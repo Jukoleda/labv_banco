@@ -31,10 +31,10 @@ public class CustomerHandler {
 		return customers;
 	}
 	
-	public static CustomerModel find(SessionClass target) throws ClassNotFoundException, SQLException {
+	public static CustomerModel find(CustomerModel target) throws ClassNotFoundException, SQLException {
 		ArrayList<CustomerModel> customers = findAll();
 		for(CustomerModel customer : customers) {
-			if(customer.getEmail().compareTo(target.getEmail()) == 0 && customer.getPass().compareTo(target.getPass()) == 0){
+			if(customer.getEmail().compareTo(target.getEmail()) == 0){
 				return customer;
 			}
 		}

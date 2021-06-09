@@ -13,7 +13,7 @@ public class TypeIdService {
 		
 		ArrayList<TypeIdModel> accounts = new ArrayList<TypeIdModel>();
 		
-		ResultSet rs = Connector.open().createStatement().executeQuery("use bank_med; select * from TypeIdentification");
+		ResultSet rs = Connector.open().createStatement().executeQuery("select * from TypeIdentification");
 		
 		while (rs.next()) {
 			accounts.add(new TypeIdModel(rs.getInt(1), rs.getString(2)));

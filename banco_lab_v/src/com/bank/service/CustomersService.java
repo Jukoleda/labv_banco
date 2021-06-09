@@ -14,7 +14,7 @@ public class CustomersService {
 		
 		ArrayList<CustomerModel> accounts = new ArrayList<CustomerModel>();
 		
-		ResultSet rs = Connector.open().createStatement().executeQuery("use bank_med; select * from Customers");
+		ResultSet rs = Connector.open().createStatement().executeQuery("CALL sp_customers_search(null, null, null, null, null, null);");
 		
 		while (rs.next()) {
 			accounts.add(new CustomerModel(rs.getInt(1), rs.getString(2), rs.getString(3), 
